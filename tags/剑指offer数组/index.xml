@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>剑指Offer、数组 on Thinking</title>
+    <link>https://XiaPengF.github.io/tags/%E5%89%91%E6%8C%87offer%E6%95%B0%E7%BB%84/</link>
+    <description>Recent content in 剑指Offer、数组 on Thinking</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <copyright>All rights reserved - 2020</copyright>
+    <lastBuildDate>Wed, 06 May 2020 09:34:09 +0800</lastBuildDate>
+    
+	<atom:link href="https://XiaPengF.github.io/tags/%E5%89%91%E6%8C%87offer%E6%95%B0%E7%BB%84/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>[剑指Offer] 6. 旋转数组的最小数字</title>
+      <link>https://XiaPengF.github.io/2020/05/06/%E5%89%91%E6%8C%87offer-6.-%E6%97%8B%E8%BD%AC%E6%95%B0%E7%BB%84%E7%9A%84%E6%9C%80%E5%B0%8F%E6%95%B0%E5%AD%97/</link>
+      <pubDate>Wed, 06 May 2020 09:34:09 +0800</pubDate>
+      
+      <guid>https://XiaPengF.github.io/2020/05/06/%E5%89%91%E6%8C%87offer-6.-%E6%97%8B%E8%BD%AC%E6%95%B0%E7%BB%84%E7%9A%84%E6%9C%80%E5%B0%8F%E6%95%B0%E5%AD%97/</guid>
+      <description>1.题目描述 把一个数组最开始的若干个元素搬到数组的末尾，我们称之为数组的旋转。 输入一个非递减排序的数组的一个旋转，输出旋转数组的最小元素。 例如数组{3,4,5,1,2}为{1,2,3,4,5}的一个旋转，该数组的最小值为1。 NOTE：给出的所有元素都大于0，若数组大小为0，请返回0。
+题目链接： https://www.nowcoder.com/practice/9f3231a991af4f55b95579b44b7a01ba?tpId=13&amp;amp;tqId=11159&amp;amp;tPage=1&amp;amp;rp=1&amp;amp;ru=%2Fta%2Fcoding-interviews&amp;amp;qru=%2Fta%2Fcoding-interviews%2Fquestion-ranking
+2.解题思路 本题的一个简单算法就是从左到右遍历，由于是递增的，直到找到一个小的数就可以停止了，但是这种方法速度相对太慢，所以可以采用二分法的思想，定义一个left和right逐步缩小范围，最终确定最小的数。
+注意：像[1,0,1,1,1] 、[1,1,1,0,1]特殊数组要注意。
+import java.util.ArrayList; public class Solution { public int minNumberInRotateArray(int [] array) { if(array==null || array.length==0){ return 0; } int left =0; int right=array.length-1; while(left&amp;lt;right){ int middle = (left+right)/2; if(array[middle] == array[right]){ right--; }else if(array[middle] &amp;gt; array[right]){ left = middle+1; }else{ right = middle; } } return array[left]; } } 运行时间：380ms
+占用内存：28564k</description>
+    </item>
+    
+    <item>
+      <title>[剑指Offer] 1. 二维数组中的查找</title>
+      <link>https://XiaPengF.github.io/2020/05/01/%E5%89%91%E6%8C%87offer-1.-%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84%E4%B8%AD%E7%9A%84%E6%9F%A5%E6%89%BE/</link>
+      <pubDate>Fri, 01 May 2020 11:40:54 +0800</pubDate>
+      
+      <guid>https://XiaPengF.github.io/2020/05/01/%E5%89%91%E6%8C%87offer-1.-%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84%E4%B8%AD%E7%9A%84%E6%9F%A5%E6%89%BE/</guid>
+      <description>1.题目描述  题目链接： https://www.nowcoder.com/practice/abc3fe2ce8e146608e868a70efebf62e?tpId=13&amp;amp;tqId=11154&amp;amp;tPage=1&amp;amp;rp=1&amp;amp;ru=/ta/coding-interviews&amp;amp;qru=/ta/coding-interviews/question-ranking
+ 在一个二维数组中（每个一维数组的长度相同），每一行都按照从左到右递增的顺序排序，每一列都按照从上到下递增的顺序排序。请完成一个函数，输入这样的一个二维数组和一个整数，判断数组中是否含有该整数。
+2.解题思路 题目中说了是二维数组和整数，所以不需要考虑非法输入（包含字符串等）；但需要判断二维数组是否为空。 从每行最后一个数判断起，相等直接返回True，小于就循环到下一行，大于就在该行查找，全部找完没找到就返回False。
+public class Solution { public boolean Find(int target, int array) { int hang = array.length; int lie = array[0].length; int i = 0; int j = lie-1; while(i&amp;lt;=hang-1 &amp;amp;&amp;amp; j&amp;gt;=0){ if(arrayi &amp;gt; target){ j--; }else if(arrayi &amp;lt; target){ i++; }else{ return true; } } return false; } }` 运行时间：190ms
+占用内存：18428k</description>
+    </item>
+    
+  </channel>
+</rss>

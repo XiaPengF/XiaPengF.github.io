@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    
+    
+        <meta name="twitter:card" content="summary"/>
+    
+
+
+
+<meta name="twitter:title" content="[剑指Offer] 5. 用两个栈实现队列"/>
+<meta name="twitter:description" content=""/>
+<meta name="twitter:site" content="@"/>
+
+
+
+  	<meta property="og:title" content="[剑指Offer] 5. 用两个栈实现队列 &middot; Thinking" />
+  	<meta property="og:site_name" content="Thinking" />
+  	<meta property="og:url" content="https://XiaPengF.github.io/2020/05/05/%E5%89%91%E6%8C%87offer-5.-%E7%94%A8%E4%B8%A4%E4%B8%AA%E6%A0%88%E5%AE%9E%E7%8E%B0%E9%98%9F%E5%88%97/" />
+
+    
+        
+            <meta property="og:image" content="/images/bird.jpg"/>
+        
+    
+
+    
+    <meta property="og:description" content="" />
+  	<meta property="og:type" content="article" />
+    <meta property="article:published_time" content="2020-05-05T13:05:07&#43;08:00" />
+
+    
+    <meta property="article:tag" content="剑指offer、栈" />
+    
+    
+
+    <title>[剑指Offer] 5. 用两个栈实现队列 &middot; Thinking</title>
+
+    
+    <meta name="description" content="1.题目描述 用两个栈来实现一个队列，完成队列的Push和Pop操作。 队列中的元素为int类型。
+题目链接： https://www.nowcoder.com/practice/54275ddae22f475981afa2244dd448c6?tpId=13&amp;amp;tqId=11158&amp;amp;tPage=1&amp;am" />
+    
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" href="https://XiaPengF.github.io/images/favicon.ico">
+	  <link rel="apple-touch-icon" href="https://XiaPengF.github.io/images/apple-touch-icon.png" />
+
+    <link rel="stylesheet" type="text/css" href="https://XiaPengF.github.io/css/screen.css" />
+    <link rel="stylesheet" type="text/css" href="https://XiaPengF.github.io/css/nav.css" />
+
+    
+
+    
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/styles/atom-one-light.min.css">
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js"></script>
+        
+        <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+      
+          <link href="https://XiaPengF.github.io/index.xml" rel="alternate" type="application/rss+xml" title="Thinking" />
+      
+      
+    
+    <meta name="generator" content="Hugo 0.69.2" />
+
+    <link rel="canonical" href="https://XiaPengF.github.io/2020/05/05/%E5%89%91%E6%8C%87offer-5.-%E7%94%A8%E4%B8%A4%E4%B8%AA%E6%A0%88%E5%AE%9E%E7%8E%B0%E9%98%9F%E5%88%97/" />
+
+    
+      
+    
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name":  null ,
+        "logo": "https://XiaPengF.github.io/images/girl.jpg"
+    },
+    "author": {
+        "@type": "Person",
+        "name":  null ,
+        
+        "image": {
+            "@type": "ImageObject",
+            "url": "https://XiaPengF.github.io/images/girl.jpg",
+            "width": 250,
+            "height": 250
+        }, 
+        
+        "url":  null ,
+        "sameAs": [
+            
+            
+             
+             
+             
+             
+             
+            
+        ],
+        "description": "Every man dies, not every man really lives."
+        
+    },
+    "headline": "[剑指Offer] 5. 用两个栈实现队列",
+    "name": "[剑指Offer] 5. 用两个栈实现队列",
+    "wordCount":  52 ,
+    "timeRequired": "PT1M",
+    "inLanguage": {
+      "@type": "Language",
+      "alternateName": "en"
+    },
+    "url": "https://XiaPengF.github.io/2020/05/05/%E5%89%91%E6%8C%87offer-5.-%E7%94%A8%E4%B8%A4%E4%B8%AA%E6%A0%88%E5%AE%9E%E7%8E%B0%E9%98%9F%E5%88%97/",
+    "datePublished": "2020-05-05T13:05Z",
+    "dateModified": "2020-05-05T13:05Z",
+    
+    "keywords": "剑指offer、栈",
+    "description": "",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://XiaPengF.github.io/2020/05/05/%E5%89%91%E6%8C%87offer-5.-%E7%94%A8%E4%B8%A4%E4%B8%AA%E6%A0%88%E5%AE%9E%E7%8E%B0%E9%98%9F%E5%88%97/"
+    }
+}
+    </script>
+    
+
+
+    
+
+    
+
+    
+</head>
+<body class="nav-closed">
+
+  <div class="nav">
+    <h3 class="nav-title">Menu</h3>
+    <a href="#" class="nav-close">
+        <span class="hidden">Close</span>
+    </a>
+    <ul>
+        
+        
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="https://XiaPengF.github.io/">Home</a>
+            </li>
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="https://XiaPengF.github.io/tags/java">JAVA</a>
+            </li>
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="https://XiaPengF.github.io/tags/others">Others</a>
+            </li>
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="https://XiaPengF.github.io/about">About</a>
+            </li>
+        
+        
+    </ul>
+
+    
+    <a class="subscribe-button icon-feed" href="https://XiaPengF.github.io/index.xml">Subscribe</a>
+    
+</div>
+<span class="nav-cover"></span>
+
+
+ <div class="site-wrapper">
+
+
+
+<header class="main-header post-head no-cover">
+  <nav class="main-nav clearfix">
+
+
+  
+      <a class="blog-logo" href="https://XiaPengF.github.io/"><img src="https://XiaPengF.github.io/images/girl.jpg" alt="Home" /></a>
+  
+  
+      <a class="menu-button" href="#"><span class="burger">&#9776;</span><span class="word">Menu</span></a>
+  
+  </nav>
+</header>
+
+
+
+<main class="content" role="main">
+
+
+
+
+  <article class="post post">
+
+    <header class="post-header">
+        <h1 class="post-title">[剑指Offer] 5. 用两个栈实现队列</h1>
+        <small></small>
+
+        <section class="post-meta">
+        
+          <time class="post-date" datetime="2020-05-05T13:05:07&#43;08:00">
+            May 5, 2020
+          </time>
+        
+         
+          <span class="post-tag small"><a href="https://XiaPengF.github.io//tags/%E5%89%91%E6%8C%87offer%E6%A0%88/">#剑指offer、栈</a></span>
+         
+        </section>
+    </header>
+
+    <section class="post-content">
+      <h3 id="1题目描述">1.题目描述</h3>
+<p>用两个栈来实现一个队列，完成队列的Push和Pop操作。 队列中的元素为int类型。</p>
+<p>题目链接：  <a href="https://www.nowcoder.com/practice/54275ddae22f475981afa2244dd448c6?tpId=13&amp;tqId=11158&amp;tPage=1&amp;rp=1&amp;ru=%2Fta%2Fcoding-interviews&amp;qru=%2Fta%2Fcoding-interviews%2Fquestion-ranking">https://www.nowcoder.com/practice/54275ddae22f475981afa2244dd448c6?tpId=13&amp;tqId=11158&amp;tPage=1&amp;rp=1&amp;ru=%2Fta%2Fcoding-interviews&amp;qru=%2Fta%2Fcoding-interviews%2Fquestion-ranking</a></p>
+<h3 id="2解题思路">2.解题思路</h3>
+<p>略。</p>
+<p>import java.util.Stack;</p>
+<p>public class Solution {
+Stack<!-- raw HTML omitted --> stack1 = new Stack<!-- raw HTML omitted -->();</p>
+<p>​    Stack<!-- raw HTML omitted --> stack2 = new Stack<!-- raw HTML omitted -->();</p>
+<pre><code>public void push(int node) {
+    stack1.push(node);
+}
+
+public int pop() {
+    while(!stack1.isEmpty()){
+        stack2.push(stack1.pop());
+    }
+    int tem = stack2.pop();
+    while(!stack2.isEmpty()){
+        stack1.push(stack2.pop());
+    }
+    return tem;
+}
+</code></pre>
+<p><code>}</code></p>
+<p><code>运行时间：14ms</code></p>
+<p><code>占用内存：9560k</code></p>
+<h3 id="3注意事项">3.注意事项</h3>
+<p>栈的特点：先进后出，队列的特点：先进先出。</p>
+<p>思考：如何用两个队列来实现一个栈？</p>
+
+    </section>
+
+
+  <footer class="post-footer">
+
+
+    
+
+
+
+
+
+
+
+
+<figure class="author-image">
+    <a class="img" href="https://XiaPengF.github.io/" style="background-image: url(/images/girl.jpg)"><span class="hidden">Xia's Picture</span></a>
+</figure>
+
+
+<section class="author">
+  <h4><a href="https://XiaPengF.github.io/">Xia</a></h4>
+  
+  <p>Every man dies, not every man really lives.</p>
+  
+  <div class="author-meta">
+    <span class="author-location icon-location">HangZhou, China</span>
+    
+  </div>
+</section>
+
+
+
+
+    
+<section class="share">
+  <h4>Share this post</h4>
+  <a class="icon-twitter" style="font-size: 1.4em" href="https://twitter.com/share?text=%5b%e5%89%91%e6%8c%87Offer%5d%205.%20%e7%94%a8%e4%b8%a4%e4%b8%aa%e6%a0%88%e5%ae%9e%e7%8e%b0%e9%98%9f%e5%88%97&nbsp;-&nbsp;Thinking&amp;url=https%3a%2f%2fXiaPengF.github.io%2f2020%2f05%2f05%2f%25E5%2589%2591%25E6%258C%2587offer-5.-%25E7%2594%25A8%25E4%25B8%25A4%25E4%25B8%25AA%25E6%25A0%2588%25E5%25AE%259E%25E7%258E%25B0%25E9%2598%259F%25E5%2588%2597%2f"
+      onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+      <span class="hidden">Twitter</span>
+  </a>
+  <a class="icon-facebook" style="font-size: 1.4em" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fXiaPengF.github.io%2f2020%2f05%2f05%2f%25E5%2589%2591%25E6%258C%2587offer-5.-%25E7%2594%25A8%25E4%25B8%25A4%25E4%25B8%25AA%25E6%25A0%2588%25E5%25AE%259E%25E7%258E%25B0%25E9%2598%259F%25E5%2588%2597%2f"
+      onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+      <span class="hidden">Facebook</span>
+  </a>
+  <a class="icon-pinterest" style="font-size: 1.4em" href="http://pinterest.com/pin/create/button/?url=https%3a%2f%2fXiaPengF.github.io%2f2020%2f05%2f05%2f%25E5%2589%2591%25E6%258C%2587offer-5.-%25E7%2594%25A8%25E4%25B8%25A4%25E4%25B8%25AA%25E6%25A0%2588%25E5%25AE%259E%25E7%258E%25B0%25E9%2598%259F%25E5%2588%2597%2f&amp;description=%5b%e5%89%91%e6%8c%87Offer%5d%205.%20%e7%94%a8%e4%b8%a4%e4%b8%aa%e6%a0%88%e5%ae%9e%e7%8e%b0%e9%98%9f%e5%88%97"
+      onclick="window.open(this.href, 'pinterest-share','width=580,height=296');return false;">
+      <span class="hidden">Pinterest</span>
+  </a>
+  <a class="icon-google-plus" style="font-size: 1.4em" href="https://plus.google.com/share?url=https%3a%2f%2fXiaPengF.github.io%2f2020%2f05%2f05%2f%25E5%2589%2591%25E6%258C%2587offer-5.-%25E7%2594%25A8%25E4%25B8%25A4%25E4%25B8%25AA%25E6%25A0%2588%25E5%25AE%259E%25E7%258E%25B0%25E9%2598%259F%25E5%2588%2597%2f"
+     onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+      <span class="hidden">Google+</span>
+  </a>
+</section>
+
+
+
+    
+
+<div id="disqus_thread"></div>
+<script>
+
+
+
+
+var disqus_config = function () {
+this.page.url = "https:\/\/XiaPengF.github.io\/2020\/05\/05\/%E5%89%91%E6%8C%87offer-5.-%E7%94%A8%E4%B8%A4%E4%B8%AA%E6%A0%88%E5%AE%9E%E7%8E%B0%E9%98%9F%E5%88%97\/";  
+this.page.identifier = "https:\/\/XiaPengF.github.io\/2020\/05\/05\/%E5%89%91%E6%8C%87offer-5.-%E7%94%A8%E4%B8%A4%E4%B8%AA%E6%A0%88%E5%AE%9E%E7%8E%B0%E9%98%9F%E5%88%97\/"; 
+};
+
+(function() { 
+var d = document, s = d.createElement('script');
+s.src = 'https://Xia.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+
+
+
+
+
+
+  </footer>
+</article>
+
+</main>
+
+
+  <aside class="read-next">
+  
+      <a class="read-next-story" style="no-cover" href="https://XiaPengF.github.io/2020/05/05/%E5%89%91%E6%8C%87offer-4.-%E9%87%8D%E5%BB%BA%E4%BA%8C%E5%8F%89%E6%A0%91/">
+          <section class="post">
+              <h2>[剑指Offer] 4. 重建二叉树</h2>
+              
+          </section>
+      </a>
+  
+  
+      <a class="read-next-story prev" style="no-cover" href="https://XiaPengF.github.io/2020/05/05/%E5%89%91%E6%8C%87offer-3.-%E4%BB%8E%E5%B0%BE%E5%88%B0%E5%A4%B4%E6%89%93%E5%8D%B0%E9%93%BE%E8%A1%A8/">
+          <section class="post">
+              <h2>[剑指Offer] 3. 从尾到头打印链表</h2>
+          </section>
+      </a>
+  
+</aside>
+
+
+
+    <footer class="site-footer clearfix">
+        <section class="copyright"><a href="">Thinking</a> All rights reserved - 2020</section>
+        
+        <section class="poweredby">Proudly generated by <a class="icon-hugo" href="http://gohugo.io">HUGO</a>, with <a class="icon-theme" href="https://github.com/vjeantet/hugo-theme-casper">Casper</a> theme</section>
+        
+    </footer>
+    </div>
+    <script type="text/javascript" src="https://XiaPengF.github.io/js/jquery.js"></script>
+    <script type="text/javascript" src="https://XiaPengF.github.io/js/jquery.fitvids.js"></script>
+    <script type="text/javascript" src="https://XiaPengF.github.io/js/index.js"></script>
+    
+</body>
+</html>
+

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>位运算符 on Thinking</title>
+    <link>https://XiaPengF.github.io/tags/%E4%BD%8D%E8%BF%90%E7%AE%97%E7%AC%A6/</link>
+    <description>Recent content in 位运算符 on Thinking</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <copyright>All rights reserved - 2020</copyright>
+    <lastBuildDate>Thu, 07 May 2020 18:48:32 +0800</lastBuildDate>
+    
+	<atom:link href="https://XiaPengF.github.io/tags/%E4%BD%8D%E8%BF%90%E7%AE%97%E7%AC%A6/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>[剑指Offer] 11. 二进制中1的个数</title>
+      <link>https://XiaPengF.github.io/2020/05/07/%E5%89%91%E6%8C%87offer-11.-%E4%BA%8C%E8%BF%9B%E5%88%B6%E4%B8%AD1%E7%9A%84%E4%B8%AA%E6%95%B0/</link>
+      <pubDate>Thu, 07 May 2020 18:48:32 +0800</pubDate>
+      
+      <guid>https://XiaPengF.github.io/2020/05/07/%E5%89%91%E6%8C%87offer-11.-%E4%BA%8C%E8%BF%9B%E5%88%B6%E4%B8%AD1%E7%9A%84%E4%B8%AA%E6%95%B0/</guid>
+      <description>1.题目描述 输入一个整数，输出该数二进制表示中1的个数。其中负数用补码表示。
+题目链接：https://www.nowcoder.com/practice/8ee967e43c2c4ec193b040ea7fbb10b8?tpId=13&amp;amp;tqId=11164&amp;amp;tPage=1&amp;amp;rp=1&amp;amp;ru=%2Fta%2Fcoding-interviews&amp;amp;qru=%2Fta%2Fcoding-interviews%2Fquestion-ranking%3E
+2.解题思路 略。
+public class Solution { public int NumberOf1(int n) { int count=0; while(n != 0){ n &amp;amp;= n-1; //得到二进制去掉最右边1后剩下的二进制数 n &amp;gt;&amp;gt;&amp;gt;= 1; count++; } return count; } } 运行时间：13ms
+占用内存：9108k
+3.位运算符相关 3.1 常见位运算&amp;amp;和&amp;amp;&amp;amp; (1). &amp;amp;叫做位的与运算符
+n &amp;amp;= n-1 -&amp;gt; 得到二进制去掉最右边1后剩下的二进制数（例如当n=00010101，经过n &amp;amp;= n-1后得到00010100）；
+n &amp;amp;= (-n) -&amp;gt; 得到二进制只剩最右边1的二进制数（例如当n=00010101，经过 n &amp;amp;= (-n) 后得到00000001）。
+(2). &amp;amp;&amp;amp;叫做逻辑与运算符，又叫短路运算符。当左边条件执行结果为false时，短路运算符的右边条件不会执行，效率相对&amp;amp;效率更快。
+3.2 常见位运算^（异或：不同为1，相同为0） 3.3 常见位运算&amp;raquo;和&amp;raquo;&amp;gt; (1). &amp;raquo; （带符号右移）：正数右移高位补0，负数右移高位补1 。
+(2). &amp;raquo;&amp;gt; （无符号右移）：无论正数还是负数，高位通通补0。
+对于正数而言，&amp;raquo;和&amp;raquo;&amp;gt;没有区别。</description>
+    </item>
+    
+  </channel>
+</rss>

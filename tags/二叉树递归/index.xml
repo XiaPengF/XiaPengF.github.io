@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>二叉树、递归 on Thinking</title>
+    <link>https://XiaPengF.github.io/tags/%E4%BA%8C%E5%8F%89%E6%A0%91%E9%80%92%E5%BD%92/</link>
+    <description>Recent content in 二叉树、递归 on Thinking</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <copyright>All rights reserved - 2020</copyright>
+    <lastBuildDate>Tue, 05 May 2020 13:05:45 +0800</lastBuildDate>
+    
+	<atom:link href="https://XiaPengF.github.io/tags/%E4%BA%8C%E5%8F%89%E6%A0%91%E9%80%92%E5%BD%92/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>[剑指Offer] 4. 重建二叉树</title>
+      <link>https://XiaPengF.github.io/2020/05/05/%E5%89%91%E6%8C%87offer-4.-%E9%87%8D%E5%BB%BA%E4%BA%8C%E5%8F%89%E6%A0%91/</link>
+      <pubDate>Tue, 05 May 2020 13:05:45 +0800</pubDate>
+      
+      <guid>https://XiaPengF.github.io/2020/05/05/%E5%89%91%E6%8C%87offer-4.-%E9%87%8D%E5%BB%BA%E4%BA%8C%E5%8F%89%E6%A0%91/</guid>
+      <description>1.题目描述 输入某二叉树的前序遍历和中序遍历的结果，请重建出该二叉树。假设输入的前序遍历和中序遍历的结果中都不含重复的数字。例如输入前序遍历序列{1,2,4,7,3,5,6,8}和中序遍历序列{4,7,2,1,5,3,8,6}，则重建二叉树并返回。
+题目链接： https://www.nowcoder.com/practice/8a19cbe657394eeaac2f6ea9b0f6fcf6?tpId=13&amp;amp;tqId=11157&amp;amp;tPage=1&amp;amp;rp=1&amp;amp;ru=%2Fta%2Fcoding-interviews&amp;amp;qru=%2Fta%2Fcoding-interviews%2Fquestion-ranking%3E
+2.解题思路 略
+3.注意事项 略</description>
+    </item>
+    
+  </channel>
+</rss>

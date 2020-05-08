@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>剑指Offer、字符串 on Thinking</title>
+    <link>https://XiaPengF.github.io/tags/%E5%89%91%E6%8C%87offer%E5%AD%97%E7%AC%A6%E4%B8%B2/</link>
+    <description>Recent content in 剑指Offer、字符串 on Thinking</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <copyright>All rights reserved - 2020</copyright>
+    <lastBuildDate>Fri, 01 May 2020 16:36:27 +0800</lastBuildDate>
+    
+	<atom:link href="https://XiaPengF.github.io/tags/%E5%89%91%E6%8C%87offer%E5%AD%97%E7%AC%A6%E4%B8%B2/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>[剑指Offer] 2. 替换空格</title>
+      <link>https://XiaPengF.github.io/2020/05/01/%E5%89%91%E6%8C%87offer-2.-%E6%9B%BF%E6%8D%A2%E7%A9%BA%E6%A0%BC/</link>
+      <pubDate>Fri, 01 May 2020 16:36:27 +0800</pubDate>
+      
+      <guid>https://XiaPengF.github.io/2020/05/01/%E5%89%91%E6%8C%87offer-2.-%E6%9B%BF%E6%8D%A2%E7%A9%BA%E6%A0%BC/</guid>
+      <description>1.题目描述  题目链接： &amp;laquo;https://www.nowcoder.com/practice/4060ac7e3e404ad1a894ef3e17650423?tpId=13&amp;amp;tqId=11155&amp;amp;tPage=1&amp;amp;rp=1&amp;amp;ru=%2Fta%2Fcoding-interviews&amp;amp;qru=%2Fta%2Fcoding-interviews%2Fquestion-ranking&amp;gt; &amp;gt;
+ 请实现一个函数，将一个字符串中的每个空格替换成“%20”。例如，当字符串为We Are Happy.则经过替换之后的字符串为We%20Are%20Happy。
+2.解题思路 略
+public class Solution { public String replaceSpace(StringBuffer str) { for (int i = 0; i &amp;lt; str.length(); i++) { if(str.charAt(i) == &#39; &#39;){ str.replace(i,i+1,&amp;quot;%20&amp;quot;); } } return new String(str); } } 运行时间：18ms
+占用内存：9632k
+3.String、StringBuffer、StringBuilder相关 3.1 String的介绍 　（1）String类是final类，也即意味着String类不能被继承，并且它的成员方法都默认为final方法。在Java中，被final修饰的类是不允许被继承的，并且该类中的成员方法都默认为final方法。在早期的JVM实现版本中，被final修饰的方法会被转为内嵌调用以提升执行效率。而从Java SE5/6开始，就渐渐摈弃这种方式了。因此在现在的Java SE版本中，不需要考虑用final去提升方法调用效率。只有在确定不想让该方法被覆盖时，才将方法设置为final。
+（2）String类其实是通过char数组来保存字符串的。（3）String的sub()、concat()还是replace()都不是在原有的字符串上进行的，而是重新生成了一个新的字符串对象。也就是说进行这些操作后，最原始的字符串并没有被改变。
+（4）在这里要永远记住一点：“对String对象的任何改变都不影响到原对象，相关的任何change操作都会生成新的对象”。
+3.2 String的深入 ​	引出的问题：String str=&amp;quot;hello world&amp;quot;和String str=new String(&amp;ldquo;hello world&amp;rdquo;)的区别 ？
+​	（1）如下代码：
+ public class Demo01 { public static void main(String[] args) { String str1 = &amp;quot;hello world&amp;quot;; String str2 = new String(&amp;quot;hello world&amp;quot;); String str3 = &amp;quot;hello world&amp;quot;; String str4 = new String(&amp;quot;hello world&amp;quot;); System.</description>
+    </item>
+    
+  </channel>
+</rss>

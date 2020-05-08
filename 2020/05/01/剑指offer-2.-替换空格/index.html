@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    
+    
+        <meta name="twitter:card" content="summary"/>
+    
+
+
+
+<meta name="twitter:title" content="[剑指Offer] 2. 替换空格"/>
+<meta name="twitter:description" content=""/>
+<meta name="twitter:site" content="@"/>
+
+
+
+  	<meta property="og:title" content="[剑指Offer] 2. 替换空格 &middot; Thinking" />
+  	<meta property="og:site_name" content="Thinking" />
+  	<meta property="og:url" content="https://XiaPengF.github.io/2020/05/01/%E5%89%91%E6%8C%87offer-2.-%E6%9B%BF%E6%8D%A2%E7%A9%BA%E6%A0%BC/" />
+
+    
+        
+            <meta property="og:image" content="/images/bird.jpg"/>
+        
+    
+
+    
+    <meta property="og:description" content="" />
+  	<meta property="og:type" content="article" />
+    <meta property="article:published_time" content="2020-05-01T16:36:27&#43;08:00" />
+
+    
+    <meta property="article:tag" content="剑指Offer、字符串" />
+    
+    
+
+    <title>[剑指Offer] 2. 替换空格 &middot; Thinking</title>
+
+    
+    <meta name="description" content="1.题目描述  题目链接： &amp;laquo;https://www.nowcoder.com/practice/4060ac7e3e404ad1a894ef3e17650423?tpId=13&amp;amp;tqId=11155&amp;amp;tPage=1&amp;amp;rp=1&amp;amp;ru=%2Fta%2Fcoding-interv" />
+    
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" href="https://XiaPengF.github.io/images/favicon.ico">
+	  <link rel="apple-touch-icon" href="https://XiaPengF.github.io/images/apple-touch-icon.png" />
+
+    <link rel="stylesheet" type="text/css" href="https://XiaPengF.github.io/css/screen.css" />
+    <link rel="stylesheet" type="text/css" href="https://XiaPengF.github.io/css/nav.css" />
+
+    
+
+    
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/styles/atom-one-light.min.css">
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js"></script>
+        
+        <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+      
+          <link href="https://XiaPengF.github.io/index.xml" rel="alternate" type="application/rss+xml" title="Thinking" />
+      
+      
+    
+    <meta name="generator" content="Hugo 0.69.2" />
+
+    <link rel="canonical" href="https://XiaPengF.github.io/2020/05/01/%E5%89%91%E6%8C%87offer-2.-%E6%9B%BF%E6%8D%A2%E7%A9%BA%E6%A0%BC/" />
+
+    
+      
+    
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name":  null ,
+        "logo": "https://XiaPengF.github.io/images/girl.jpg"
+    },
+    "author": {
+        "@type": "Person",
+        "name":  null ,
+        
+        "image": {
+            "@type": "ImageObject",
+            "url": "https://XiaPengF.github.io/images/girl.jpg",
+            "width": 250,
+            "height": 250
+        }, 
+        
+        "url":  null ,
+        "sameAs": [
+            
+            
+             
+             
+             
+             
+             
+            
+        ],
+        "description": "Every man dies, not every man really lives."
+        
+    },
+    "headline": "[剑指Offer] 2. 替换空格",
+    "name": "[剑指Offer] 2. 替换空格",
+    "wordCount":  186 ,
+    "timeRequired": "PT1M",
+    "inLanguage": {
+      "@type": "Language",
+      "alternateName": "en"
+    },
+    "url": "https://XiaPengF.github.io/2020/05/01/%E5%89%91%E6%8C%87offer-2.-%E6%9B%BF%E6%8D%A2%E7%A9%BA%E6%A0%BC/",
+    "datePublished": "2020-05-01T16:36Z",
+    "dateModified": "2020-05-01T16:36Z",
+    
+    "keywords": "剑指Offer、字符串",
+    "description": "",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://XiaPengF.github.io/2020/05/01/%E5%89%91%E6%8C%87offer-2.-%E6%9B%BF%E6%8D%A2%E7%A9%BA%E6%A0%BC/"
+    }
+}
+    </script>
+    
+
+
+    
+
+    
+
+    
+</head>
+<body class="nav-closed">
+
+  <div class="nav">
+    <h3 class="nav-title">Menu</h3>
+    <a href="#" class="nav-close">
+        <span class="hidden">Close</span>
+    </a>
+    <ul>
+        
+        
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="https://XiaPengF.github.io/">Home</a>
+            </li>
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="https://XiaPengF.github.io/tags/java">JAVA</a>
+            </li>
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="https://XiaPengF.github.io/tags/others">Others</a>
+            </li>
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="https://XiaPengF.github.io/about">About</a>
+            </li>
+        
+        
+    </ul>
+
+    
+    <a class="subscribe-button icon-feed" href="https://XiaPengF.github.io/index.xml">Subscribe</a>
+    
+</div>
+<span class="nav-cover"></span>
+
+
+ <div class="site-wrapper">
+
+
+
+<header class="main-header post-head no-cover">
+  <nav class="main-nav clearfix">
+
+
+  
+      <a class="blog-logo" href="https://XiaPengF.github.io/"><img src="https://XiaPengF.github.io/images/girl.jpg" alt="Home" /></a>
+  
+  
+      <a class="menu-button" href="#"><span class="burger">&#9776;</span><span class="word">Menu</span></a>
+  
+  </nav>
+</header>
+
+
+
+<main class="content" role="main">
+
+
+
+
+  <article class="post post">
+
+    <header class="post-header">
+        <h1 class="post-title">[剑指Offer] 2. 替换空格</h1>
+        <small></small>
+
+        <section class="post-meta">
+        
+          <time class="post-date" datetime="2020-05-01T16:36:27&#43;08:00">
+            May 1, 2020
+          </time>
+        
+         
+          <span class="post-tag small"><a href="https://XiaPengF.github.io//tags/%E5%89%91%E6%8C%87offer%E5%AD%97%E7%AC%A6%E4%B8%B2/">#剑指Offer、字符串</a></span>
+         
+        </section>
+    </header>
+
+    <section class="post-content">
+      <h3 id="1题目描述">1.题目描述</h3>
+<blockquote>
+<p>题目链接：  &laquo;<a href="https://www.nowcoder.com/practice/4060ac7e3e404ad1a894ef3e17650423?tpId=13&amp;tqId=11155&amp;tPage=1&amp;rp=1&amp;ru=%2Fta%2Fcoding-interviews&amp;qru=%2Fta%2Fcoding-interviews%2Fquestion-ranking%3E">https://www.nowcoder.com/practice/4060ac7e3e404ad1a894ef3e17650423?tpId=13&amp;tqId=11155&amp;tPage=1&amp;rp=1&amp;ru=%2Fta%2Fcoding-interviews&amp;qru=%2Fta%2Fcoding-interviews%2Fquestion-ranking&gt;</a> &gt;</p>
+</blockquote>
+<p>请实现一个函数，将一个字符串中的每个空格替换成“%20”。例如，当字符串为We Are Happy.则经过替换之后的字符串为We%20Are%20Happy。</p>
+<h3 id="2解题思路">2.解题思路</h3>
+<p>略</p>
+<pre><code>public class Solution {
+    public String replaceSpace(StringBuffer str) {
+        for (int i = 0; i &lt; str.length(); i++) {
+            if(str.charAt(i) == ' '){
+                str.replace(i,i+1,&quot;%20&quot;);
+            }
+        }
+        return new String(str);
+    }
+}
+</code></pre><p><code>运行时间：18ms</code></p>
+<p><code>占用内存：9632k</code></p>
+<h3 id="3stringstringbufferstringbuilder相关">3.String、StringBuffer、StringBuilder相关</h3>
+<h4 id="31--string的介绍">3.1  String的介绍</h4>
+<p>　（1）<!-- raw HTML omitted -->String类是final类，也即意味着String类不能被继承，并且它的成员方法都默认为final方法<!-- raw HTML omitted -->。在Java中，被final修饰的类是不允许被继承的，并且该类中的成员方法都默认为final方法。在早期的JVM实现版本中，被final修饰的方法会被转为内嵌调用以提升执行效率。而从Java SE5/6开始，就渐渐摈弃这种方式了。因此在现在的Java SE版本中，不需要考虑用final去提升方法调用效率。只有在确定不想让该方法被覆盖时，才将方法设置为final。</p>
+<p>（2）<!-- raw HTML omitted -->String类其实是通过char数组来保存字符串的。<!-- raw HTML omitted --></p>
+<p>（3）String的sub()、concat()还是replace()都不是在原有的字符串上进行的，而是重新生成了一个新的字符串对象。也就是说进行这些操作后，最原始的字符串并没有被改变。</p>
+<p>（4）在这里要永远记住一点：“<strong>对String对象的任何改变都不影响到原对象，相关的任何change操作都会生成新的对象</strong>”。</p>
+<h4 id="32---string的深入">3.2   String的深入</h4>
+<p>​	引出的问题：String str=&quot;hello world&quot;和String str=new String(&ldquo;hello world&rdquo;)的区别 ？</p>
+<p>​	（1）如下代码：</p>
+<pre><code>    public class Demo01 {
+        public static void main(String[] args) {
+            String str1 = &quot;hello world&quot;;
+            String str2 = new String(&quot;hello world&quot;);
+            String str3 = &quot;hello world&quot;;
+            String str4 = new String(&quot;hello world&quot;);
+
+            System.out.println(str1==str2);
+            System.out.println(str1==str3);
+            System.out.println(str2==str4);
+        }
+    }
+</code></pre><p>​	（2）结果：</p>
+<p>​		<code>false</code>
+<code>true</code>
+<code>false</code></p>
+<p>​	（3）分析：</p>
+<p>​	 String str=&quot;hello world&quot;底层源于JVM内存机制 ，<!-- raw HTML omitted -->在class文件中有一部分用来存储编译期间生成的字面常量以及符号引用，这部分叫做class文件常量池，在运行期间对应着方法区的运行时常量池<!-- raw HTML omitted --> 。</p>
+<p>​	因此在上述代码中，String str1 = &ldquo;hello world&rdquo;;和String str3 = &ldquo;hello world&rdquo;; 都在编译期间生成了字面常量和符号引用，运行期间字面常量&quot;hello world&quot;被存储在运行时常量池（当然只保存了一份）。通过这种方式来将String对象跟引用绑定的话，JVM执行引擎会先在运行时常量池查找是否存在相同的字面常量，如果存在，则直接将引用指向已经存在的字面常量；否则在运行时常量池开辟一个空间来存储该字面常量，并将引用指向该字面常量。</p>
+<p>​	总所周知，通过new关键字来生成对象是在堆区进行的，而在堆区进行对象生成的过程是不会去检测该对象是否已经存在的<!-- raw HTML omitted -->。因此通过new来创建对象，创建出的一定是不同的对象，即使字符串的内容是相同的。<!-- raw HTML omitted --></p>
+<h4 id="33--stringstringbufferstringbuilder的区别">3.3  String、StringBuffer、StringBuilder的区别</h4>
+<p>​	<!-- raw HTML omitted -->StringBuilder和StringBuffer的对象是变量，对变量进行操作就是直接对该对象进行更改，而不进行创建和回收的操作，所以速度要比String快很多。<!-- raw HTML omitted --></p>
+<p>这三个类之间的区别主要是在两个方面，即运行速度和线程安全这两方面。</p>
+<p>（1）首先说运行速度，或者说是执行速度，<strong>在这方面运行速度快慢为：StringBuilder &gt; StringBuffer &gt; String</strong></p>
+<p>　　**String最慢的原因：**String为字符串常量，而StringBuilder和StringBuffer均为字符串变量，即String对象一旦创建之后该对象是不可更改的，但后两者的对象是变量，是可以更改的。</p>
+<p>（2）再来说线程安全</p>
+<p>　　<strong>在线程安全上，StringBuilder是线程不安全的，而StringBuffer是线程安全的</strong>。</p>
+<p>　　如果一个StringBuffer对象在字符串缓冲区被多个线程使用时，StringBuffer中很多方法可以带有synchronized关键字，所以可以保证线程是安全的，但StringBuilder的方法则没有该关键字，所以不能保证线程安全，有可能会出现一些错误的操作。所以如果要进行的操作是多线程的，那么就要使用StringBuffer，但是在单线程的情况下，还是建议使用速度比较快的StringBuilder。</p>
+<p>　（3）总结
+　　<strong>String：适用于少量的字符串操作的情况</strong></p>
+<p>　　<strong>StringBuilder：适用于单线程下在字符缓冲区进行大量操作的情况</strong></p>
+<p>　　<strong>StringBuffer：适用多线程下在字符缓冲区进行大量操作的情况</strong></p>
+<h4 id="34--关于stringstringbuffer常见面试题">3.4  关于String、StringBuffer常见面试题</h4>
+<p>​	（1）代码1</p>
+<p>​		<code>String a = &quot;hello1&quot;;String b = &quot;hello&quot; + 1;System.out.println((a == b));</code></p>
+<p>​	 结果及分析：输出结果为：true。原因很简单，&ldquo;hello&quot;+1在编译期间就已经被优化成&quot;hello1&rdquo;，因此在运行期间，变量a和变量b指向的是同一个对象。</p>
+<p>​	（1）代码2</p>
+<p>​		``String a = &ldquo;hello1&rdquo;;String b = &ldquo;hello&rdquo;;String c = b + 1;System.out.println((a == c));`</p>
+<p>​	 结果及分析：输出结果为:false。由于有符号引用的存在，所以  String c = b +1不会在编译期间被优化，不会把b+2当做字面常量来处理的，因此这种方式生成的对象事实上是保存在堆上的。因此a和c指向的并不是同一个对象。</p>
+<p><a href="https://www.cnblogs.com/dolphin0520/p/3778589.html">https://www.cnblogs.com/dolphin0520/p/3778589.html</a></p>
+<p>冠以常量池的相关介绍：<a href="https://blog.csdn.net/qq_26222859/article/details/73135660">https://blog.csdn.net/qq_26222859/article/details/73135660</a></p>
+
+    </section>
+
+
+  <footer class="post-footer">
+
+
+    
+
+
+
+
+
+
+
+
+<figure class="author-image">
+    <a class="img" href="https://XiaPengF.github.io/" style="background-image: url(/images/girl.jpg)"><span class="hidden">Xia's Picture</span></a>
+</figure>
+
+
+<section class="author">
+  <h4><a href="https://XiaPengF.github.io/">Xia</a></h4>
+  
+  <p>Every man dies, not every man really lives.</p>
+  
+  <div class="author-meta">
+    <span class="author-location icon-location">HangZhou, China</span>
+    
+  </div>
+</section>
+
+
+
+
+    
+<section class="share">
+  <h4>Share this post</h4>
+  <a class="icon-twitter" style="font-size: 1.4em" href="https://twitter.com/share?text=%5b%e5%89%91%e6%8c%87Offer%5d%202.%20%e6%9b%bf%e6%8d%a2%e7%a9%ba%e6%a0%bc&nbsp;-&nbsp;Thinking&amp;url=https%3a%2f%2fXiaPengF.github.io%2f2020%2f05%2f01%2f%25E5%2589%2591%25E6%258C%2587offer-2.-%25E6%259B%25BF%25E6%258D%25A2%25E7%25A9%25BA%25E6%25A0%25BC%2f"
+      onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+      <span class="hidden">Twitter</span>
+  </a>
+  <a class="icon-facebook" style="font-size: 1.4em" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fXiaPengF.github.io%2f2020%2f05%2f01%2f%25E5%2589%2591%25E6%258C%2587offer-2.-%25E6%259B%25BF%25E6%258D%25A2%25E7%25A9%25BA%25E6%25A0%25BC%2f"
+      onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+      <span class="hidden">Facebook</span>
+  </a>
+  <a class="icon-pinterest" style="font-size: 1.4em" href="http://pinterest.com/pin/create/button/?url=https%3a%2f%2fXiaPengF.github.io%2f2020%2f05%2f01%2f%25E5%2589%2591%25E6%258C%2587offer-2.-%25E6%259B%25BF%25E6%258D%25A2%25E7%25A9%25BA%25E6%25A0%25BC%2f&amp;description=%5b%e5%89%91%e6%8c%87Offer%5d%202.%20%e6%9b%bf%e6%8d%a2%e7%a9%ba%e6%a0%bc"
+      onclick="window.open(this.href, 'pinterest-share','width=580,height=296');return false;">
+      <span class="hidden">Pinterest</span>
+  </a>
+  <a class="icon-google-plus" style="font-size: 1.4em" href="https://plus.google.com/share?url=https%3a%2f%2fXiaPengF.github.io%2f2020%2f05%2f01%2f%25E5%2589%2591%25E6%258C%2587offer-2.-%25E6%259B%25BF%25E6%258D%25A2%25E7%25A9%25BA%25E6%25A0%25BC%2f"
+     onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+      <span class="hidden">Google+</span>
+  </a>
+</section>
+
+
+
+    
+
+<div id="disqus_thread"></div>
+<script>
+
+
+
+
+var disqus_config = function () {
+this.page.url = "https:\/\/XiaPengF.github.io\/2020\/05\/01\/%E5%89%91%E6%8C%87offer-2.-%E6%9B%BF%E6%8D%A2%E7%A9%BA%E6%A0%BC\/";  
+this.page.identifier = "https:\/\/XiaPengF.github.io\/2020\/05\/01\/%E5%89%91%E6%8C%87offer-2.-%E6%9B%BF%E6%8D%A2%E7%A9%BA%E6%A0%BC\/"; 
+};
+
+(function() { 
+var d = document, s = d.createElement('script');
+s.src = 'https://Xia.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+
+
+
+
+
+
+  </footer>
+</article>
+
+</main>
+
+
+  <aside class="read-next">
+  
+      <a class="read-next-story" style="no-cover" href="https://XiaPengF.github.io/2020/05/05/%E5%89%91%E6%8C%87offer-3.-%E4%BB%8E%E5%B0%BE%E5%88%B0%E5%A4%B4%E6%89%93%E5%8D%B0%E9%93%BE%E8%A1%A8/">
+          <section class="post">
+              <h2>[剑指Offer] 3. 从尾到头打印链表</h2>
+              
+          </section>
+      </a>
+  
+  
+      <a class="read-next-story prev" style="no-cover" href="https://XiaPengF.github.io/2020/05/01/%E5%89%91%E6%8C%87offer-1.-%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84%E4%B8%AD%E7%9A%84%E6%9F%A5%E6%89%BE/">
+          <section class="post">
+              <h2>[剑指Offer] 1. 二维数组中的查找</h2>
+          </section>
+      </a>
+  
+</aside>
+
+
+
+    <footer class="site-footer clearfix">
+        <section class="copyright"><a href="">Thinking</a> All rights reserved - 2020</section>
+        
+        <section class="poweredby">Proudly generated by <a class="icon-hugo" href="http://gohugo.io">HUGO</a>, with <a class="icon-theme" href="https://github.com/vjeantet/hugo-theme-casper">Casper</a> theme</section>
+        
+    </footer>
+    </div>
+    <script type="text/javascript" src="https://XiaPengF.github.io/js/jquery.js"></script>
+    <script type="text/javascript" src="https://XiaPengF.github.io/js/jquery.fitvids.js"></script>
+    <script type="text/javascript" src="https://XiaPengF.github.io/js/index.js"></script>
+    
+</body>
+</html>
+

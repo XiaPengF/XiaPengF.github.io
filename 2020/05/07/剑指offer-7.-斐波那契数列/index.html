@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    
+    
+        <meta name="twitter:card" content="summary"/>
+    
+
+
+
+<meta name="twitter:title" content="[剑指Offer] 7. 斐波那契数列"/>
+<meta name="twitter:description" content=""/>
+<meta name="twitter:site" content="@"/>
+
+
+
+  	<meta property="og:title" content="[剑指Offer] 7. 斐波那契数列 &middot; Thinking" />
+  	<meta property="og:site_name" content="Thinking" />
+  	<meta property="og:url" content="https://XiaPengF.github.io/2020/05/07/%E5%89%91%E6%8C%87offer-7.-%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E6%95%B0%E5%88%97/" />
+
+    
+        
+            <meta property="og:image" content="/images/bird.jpg"/>
+        
+    
+
+    
+    <meta property="og:description" content="" />
+  	<meta property="og:type" content="article" />
+    <meta property="article:published_time" content="2020-05-07T17:52:09&#43;08:00" />
+
+    
+    <meta property="article:tag" content="递归、动态规划" />
+    
+    
+
+    <title>[剑指Offer] 7. 斐波那契数列 &middot; Thinking</title>
+
+    
+    <meta name="description" content="1.题目描述 大家都知道斐波那契数列，现在要求输入一个整数n，请你输出斐波那契数列的第n项（从0开始，第0项为0，第1项是1）。n&amp;lt;=39
+题目链接： https://www.nowcoder.com/practice/c6c7742f5ba7442aada113136ddea0c3?tpId=13&amp;amp;tq" />
+    
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" href="https://XiaPengF.github.io/images/favicon.ico">
+	  <link rel="apple-touch-icon" href="https://XiaPengF.github.io/images/apple-touch-icon.png" />
+
+    <link rel="stylesheet" type="text/css" href="https://XiaPengF.github.io/css/screen.css" />
+    <link rel="stylesheet" type="text/css" href="https://XiaPengF.github.io/css/nav.css" />
+
+    
+
+    
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/styles/atom-one-light.min.css">
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js"></script>
+        
+        <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+      
+          <link href="https://XiaPengF.github.io/index.xml" rel="alternate" type="application/rss+xml" title="Thinking" />
+      
+      
+    
+    <meta name="generator" content="Hugo 0.69.2" />
+
+    <link rel="canonical" href="https://XiaPengF.github.io/2020/05/07/%E5%89%91%E6%8C%87offer-7.-%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E6%95%B0%E5%88%97/" />
+
+    
+      
+    
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name":  null ,
+        "logo": "https://XiaPengF.github.io/images/girl.jpg"
+    },
+    "author": {
+        "@type": "Person",
+        "name":  null ,
+        
+        "image": {
+            "@type": "ImageObject",
+            "url": "https://XiaPengF.github.io/images/girl.jpg",
+            "width": 250,
+            "height": 250
+        }, 
+        
+        "url":  null ,
+        "sameAs": [
+            
+            
+             
+             
+             
+             
+             
+            
+        ],
+        "description": "Every man dies, not every man really lives."
+        
+    },
+    "headline": "[剑指Offer] 7. 斐波那契数列",
+    "name": "[剑指Offer] 7. 斐波那契数列",
+    "wordCount":  135 ,
+    "timeRequired": "PT1M",
+    "inLanguage": {
+      "@type": "Language",
+      "alternateName": "en"
+    },
+    "url": "https://XiaPengF.github.io/2020/05/07/%E5%89%91%E6%8C%87offer-7.-%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E6%95%B0%E5%88%97/",
+    "datePublished": "2020-05-07T17:52Z",
+    "dateModified": "2020-05-07T17:52Z",
+    
+    "keywords": "递归、动态规划",
+    "description": "",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://XiaPengF.github.io/2020/05/07/%E5%89%91%E6%8C%87offer-7.-%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E6%95%B0%E5%88%97/"
+    }
+}
+    </script>
+    
+
+
+    
+
+    
+
+    
+</head>
+<body class="nav-closed">
+
+  <div class="nav">
+    <h3 class="nav-title">Menu</h3>
+    <a href="#" class="nav-close">
+        <span class="hidden">Close</span>
+    </a>
+    <ul>
+        
+        
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="https://XiaPengF.github.io/">Home</a>
+            </li>
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="https://XiaPengF.github.io/tags/java">JAVA</a>
+            </li>
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="https://XiaPengF.github.io/tags/others">Others</a>
+            </li>
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="https://XiaPengF.github.io/about">About</a>
+            </li>
+        
+        
+    </ul>
+
+    
+    <a class="subscribe-button icon-feed" href="https://XiaPengF.github.io/index.xml">Subscribe</a>
+    
+</div>
+<span class="nav-cover"></span>
+
+
+ <div class="site-wrapper">
+
+
+
+<header class="main-header post-head no-cover">
+  <nav class="main-nav clearfix">
+
+
+  
+      <a class="blog-logo" href="https://XiaPengF.github.io/"><img src="https://XiaPengF.github.io/images/girl.jpg" alt="Home" /></a>
+  
+  
+      <a class="menu-button" href="#"><span class="burger">&#9776;</span><span class="word">Menu</span></a>
+  
+  </nav>
+</header>
+
+
+
+<main class="content" role="main">
+
+
+
+
+  <article class="post post">
+
+    <header class="post-header">
+        <h1 class="post-title">[剑指Offer] 7. 斐波那契数列</h1>
+        <small></small>
+
+        <section class="post-meta">
+        
+          <time class="post-date" datetime="2020-05-07T17:52:09&#43;08:00">
+            May 7, 2020
+          </time>
+        
+         
+          <span class="post-tag small"><a href="https://XiaPengF.github.io//tags/%E9%80%92%E5%BD%92%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">#递归、动态规划</a></span>
+         
+        </section>
+    </header>
+
+    <section class="post-content">
+      <h3 id="1题目描述">1.题目描述</h3>
+<p>大家都知道斐波那契数列，现在要求输入一个整数n，请你输出斐波那契数列的第n项（从0开始，第0项为0，第1项是1）。n&lt;=39</p>
+<p>题目链接：  <a href="https://www.nowcoder.com/practice/c6c7742f5ba7442aada113136ddea0c3?tpId=13&amp;tqId=11160&amp;tPage=1&amp;rp=1&amp;ru=%2Fta%2Fcoding-interviews&amp;qru=%2Fta%2Fcoding-interviews%2Fquestion-ranking%3E">https://www.nowcoder.com/practice/c6c7742f5ba7442aada113136ddea0c3?tpId=13&amp;tqId=11160&amp;tPage=1&amp;rp=1&amp;ru=%2Fta%2Fcoding-interviews&amp;qru=%2Fta%2Fcoding-interviews%2Fquestion-ranking%3E</a></p>
+<h3 id="2解题思路">2.解题思路</h3>
+<p>只需注意斐波那契数列的第零项即可。</p>
+<p>当  $n=0、1$时：$f(n)=0、1$ ；</p>
+<p>当  $n&gt;=2$时： $f(n) = f(n-1)+f(n-2) $</p>
+<h4 id="u21使用递归u"><!-- raw HTML omitted -->2.1.使用递归<!-- raw HTML omitted --></h4>
+<pre><code>public class Solution {
+    public int Fibonacci(int n) {
+        if(n&lt;2){
+            return n;
+        }
+        int[] dp = new int[40];
+        dp[0] = 0; dp[1] = 1;
+        for(int i=2;i&lt;dp.length;i++){
+            dp[i] = dp[i-1]+dp[i-2];
+        }
+        return dp[n];
+    }
+}
+</code></pre><p><code>运行时间：995ms</code></p>
+<p><code>占用内存：9040k</code></p>
+<h4 id="u22使用动态规划借助数组u"><!-- raw HTML omitted -->2.2.使用动态规划(借助数组)<!-- raw HTML omitted --></h4>
+<pre><code>public class Solution {
+    public int Fibonacci(int n) {
+        if(n&lt;2){
+            return n;
+        }
+        int[] dp = new int[40];
+        dp[0] = 0; dp[1] = 1;
+        for(int i=2;i&lt;dp.length;i++){
+            dp[i] = dp[i-1]+dp[i-2];
+        }
+        return dp[n];
+    }
+}
+</code></pre><p><code>运行时间：19ms</code></p>
+<p><code>占用内存：9260k</code></p>
+<h4 id="u23使用动态规划不借助数组u"><!-- raw HTML omitted -->2.3.使用动态规划(不借助数组)<!-- raw HTML omitted --></h4>
+<pre><code>	public class Solution {
+    public int Fibonacci(int n) {
+        if(n&lt;2){
+            return n;
+        }
+        int prev = 0, curr = 1;
+        for(int i=2;i&lt;=n;i++){
+            int sum  = prev + curr;
+            prev = curr;
+            curr = sum;
+        }
+        return curr;
+    }
+}
+</code></pre><p><code>运行时间：13ms</code></p>
+<p><code>占用内存：9296k</code></p>
+<h3 id="3递归动态规划相关">3.递归、动态规划相关</h3>
+<h4 id="31-递归的介绍">3.1 递归的介绍</h4>
+<h4 id="32动态规划介绍">3.2动态规划介绍</h4>
+
+    </section>
+
+
+  <footer class="post-footer">
+
+
+    
+
+
+
+
+
+
+
+
+<figure class="author-image">
+    <a class="img" href="https://XiaPengF.github.io/" style="background-image: url(/images/girl.jpg)"><span class="hidden">Xia's Picture</span></a>
+</figure>
+
+
+<section class="author">
+  <h4><a href="https://XiaPengF.github.io/">Xia</a></h4>
+  
+  <p>Every man dies, not every man really lives.</p>
+  
+  <div class="author-meta">
+    <span class="author-location icon-location">HangZhou, China</span>
+    
+  </div>
+</section>
+
+
+
+
+    
+<section class="share">
+  <h4>Share this post</h4>
+  <a class="icon-twitter" style="font-size: 1.4em" href="https://twitter.com/share?text=%5b%e5%89%91%e6%8c%87Offer%5d%207.%20%e6%96%90%e6%b3%a2%e9%82%a3%e5%a5%91%e6%95%b0%e5%88%97&nbsp;-&nbsp;Thinking&amp;url=https%3a%2f%2fXiaPengF.github.io%2f2020%2f05%2f07%2f%25E5%2589%2591%25E6%258C%2587offer-7.-%25E6%2596%2590%25E6%25B3%25A2%25E9%2582%25A3%25E5%25A5%2591%25E6%2595%25B0%25E5%2588%2597%2f"
+      onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+      <span class="hidden">Twitter</span>
+  </a>
+  <a class="icon-facebook" style="font-size: 1.4em" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fXiaPengF.github.io%2f2020%2f05%2f07%2f%25E5%2589%2591%25E6%258C%2587offer-7.-%25E6%2596%2590%25E6%25B3%25A2%25E9%2582%25A3%25E5%25A5%2591%25E6%2595%25B0%25E5%2588%2597%2f"
+      onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+      <span class="hidden">Facebook</span>
+  </a>
+  <a class="icon-pinterest" style="font-size: 1.4em" href="http://pinterest.com/pin/create/button/?url=https%3a%2f%2fXiaPengF.github.io%2f2020%2f05%2f07%2f%25E5%2589%2591%25E6%258C%2587offer-7.-%25E6%2596%2590%25E6%25B3%25A2%25E9%2582%25A3%25E5%25A5%2591%25E6%2595%25B0%25E5%2588%2597%2f&amp;description=%5b%e5%89%91%e6%8c%87Offer%5d%207.%20%e6%96%90%e6%b3%a2%e9%82%a3%e5%a5%91%e6%95%b0%e5%88%97"
+      onclick="window.open(this.href, 'pinterest-share','width=580,height=296');return false;">
+      <span class="hidden">Pinterest</span>
+  </a>
+  <a class="icon-google-plus" style="font-size: 1.4em" href="https://plus.google.com/share?url=https%3a%2f%2fXiaPengF.github.io%2f2020%2f05%2f07%2f%25E5%2589%2591%25E6%258C%2587offer-7.-%25E6%2596%2590%25E6%25B3%25A2%25E9%2582%25A3%25E5%25A5%2591%25E6%2595%25B0%25E5%2588%2597%2f"
+     onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+      <span class="hidden">Google+</span>
+  </a>
+</section>
+
+
+
+    
+
+<div id="disqus_thread"></div>
+<script>
+
+
+
+
+var disqus_config = function () {
+this.page.url = "https:\/\/XiaPengF.github.io\/2020\/05\/07\/%E5%89%91%E6%8C%87offer-7.-%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E6%95%B0%E5%88%97\/";  
+this.page.identifier = "https:\/\/XiaPengF.github.io\/2020\/05\/07\/%E5%89%91%E6%8C%87offer-7.-%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E6%95%B0%E5%88%97\/"; 
+};
+
+(function() { 
+var d = document, s = d.createElement('script');
+s.src = 'https://Xia.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+
+
+
+
+
+
+  </footer>
+</article>
+
+</main>
+
+
+  <aside class="read-next">
+  
+      <a class="read-next-story" style="no-cover" href="https://XiaPengF.github.io/2020/05/07/%E5%89%91%E6%8C%87offer-8.-%E8%B7%B3%E5%8F%B0%E9%98%B6/">
+          <section class="post">
+              <h2>[剑指Offer] 8. 跳台阶</h2>
+              
+          </section>
+      </a>
+  
+  
+      <a class="read-next-story prev" style="no-cover" href="https://XiaPengF.github.io/2020/05/06/%E5%89%91%E6%8C%87offer-6.-%E6%97%8B%E8%BD%AC%E6%95%B0%E7%BB%84%E7%9A%84%E6%9C%80%E5%B0%8F%E6%95%B0%E5%AD%97/">
+          <section class="post">
+              <h2>[剑指Offer] 6. 旋转数组的最小数字</h2>
+          </section>
+      </a>
+  
+</aside>
+
+
+
+    <footer class="site-footer clearfix">
+        <section class="copyright"><a href="">Thinking</a> All rights reserved - 2020</section>
+        
+        <section class="poweredby">Proudly generated by <a class="icon-hugo" href="http://gohugo.io">HUGO</a>, with <a class="icon-theme" href="https://github.com/vjeantet/hugo-theme-casper">Casper</a> theme</section>
+        
+    </footer>
+    </div>
+    <script type="text/javascript" src="https://XiaPengF.github.io/js/jquery.js"></script>
+    <script type="text/javascript" src="https://XiaPengF.github.io/js/jquery.fitvids.js"></script>
+    <script type="text/javascript" src="https://XiaPengF.github.io/js/index.js"></script>
+    
+</body>
+</html>
+

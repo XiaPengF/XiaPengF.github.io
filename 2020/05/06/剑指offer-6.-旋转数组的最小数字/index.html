@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    
+    
+        <meta name="twitter:card" content="summary"/>
+    
+
+
+
+<meta name="twitter:title" content="[剑指Offer] 6. 旋转数组的最小数字"/>
+<meta name="twitter:description" content=""/>
+<meta name="twitter:site" content="@"/>
+
+
+
+  	<meta property="og:title" content="[剑指Offer] 6. 旋转数组的最小数字 &middot; Thinking" />
+  	<meta property="og:site_name" content="Thinking" />
+  	<meta property="og:url" content="https://XiaPengF.github.io/2020/05/06/%E5%89%91%E6%8C%87offer-6.-%E6%97%8B%E8%BD%AC%E6%95%B0%E7%BB%84%E7%9A%84%E6%9C%80%E5%B0%8F%E6%95%B0%E5%AD%97/" />
+
+    
+        
+            <meta property="og:image" content="/images/bird.jpg"/>
+        
+    
+
+    
+    <meta property="og:description" content="" />
+  	<meta property="og:type" content="article" />
+    <meta property="article:published_time" content="2020-05-06T09:34:09&#43;08:00" />
+
+    
+    <meta property="article:tag" content="剑指offer、数组" />
+    
+    
+
+    <title>[剑指Offer] 6. 旋转数组的最小数字 &middot; Thinking</title>
+
+    
+    <meta name="description" content="1.题目描述 把一个数组最开始的若干个元素搬到数组的末尾，我们称之为数组的旋转。 输入一个非递减排序的数组的一个旋转，输出旋转数组的最小元素。 例如数组{3,4,5,1,2}为{1,2,3,4,5}的一个旋转，该数组的最小值为1。 NOTE：给出的所有元素都大于0，若数组大小为0，请返回0。
+题目链接： https:/" />
+    
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" href="https://XiaPengF.github.io/images/favicon.ico">
+	  <link rel="apple-touch-icon" href="https://XiaPengF.github.io/images/apple-touch-icon.png" />
+
+    <link rel="stylesheet" type="text/css" href="https://XiaPengF.github.io/css/screen.css" />
+    <link rel="stylesheet" type="text/css" href="https://XiaPengF.github.io/css/nav.css" />
+
+    
+
+    
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/styles/atom-one-light.min.css">
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js"></script>
+        
+        <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+      
+          <link href="https://XiaPengF.github.io/index.xml" rel="alternate" type="application/rss+xml" title="Thinking" />
+      
+      
+    
+    <meta name="generator" content="Hugo 0.69.2" />
+
+    <link rel="canonical" href="https://XiaPengF.github.io/2020/05/06/%E5%89%91%E6%8C%87offer-6.-%E6%97%8B%E8%BD%AC%E6%95%B0%E7%BB%84%E7%9A%84%E6%9C%80%E5%B0%8F%E6%95%B0%E5%AD%97/" />
+
+    
+      
+    
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name":  null ,
+        "logo": "https://XiaPengF.github.io/images/girl.jpg"
+    },
+    "author": {
+        "@type": "Person",
+        "name":  null ,
+        
+        "image": {
+            "@type": "ImageObject",
+            "url": "https://XiaPengF.github.io/images/girl.jpg",
+            "width": 250,
+            "height": 250
+        }, 
+        
+        "url":  null ,
+        "sameAs": [
+            
+            
+             
+             
+             
+             
+             
+            
+        ],
+        "description": "Every man dies, not every man really lives."
+        
+    },
+    "headline": "[剑指Offer] 6. 旋转数组的最小数字",
+    "name": "[剑指Offer] 6. 旋转数组的最小数字",
+    "wordCount":  62 ,
+    "timeRequired": "PT1M",
+    "inLanguage": {
+      "@type": "Language",
+      "alternateName": "en"
+    },
+    "url": "https://XiaPengF.github.io/2020/05/06/%E5%89%91%E6%8C%87offer-6.-%E6%97%8B%E8%BD%AC%E6%95%B0%E7%BB%84%E7%9A%84%E6%9C%80%E5%B0%8F%E6%95%B0%E5%AD%97/",
+    "datePublished": "2020-05-06T09:34Z",
+    "dateModified": "2020-05-06T09:34Z",
+    
+    "keywords": "剑指offer、数组",
+    "description": "",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://XiaPengF.github.io/2020/05/06/%E5%89%91%E6%8C%87offer-6.-%E6%97%8B%E8%BD%AC%E6%95%B0%E7%BB%84%E7%9A%84%E6%9C%80%E5%B0%8F%E6%95%B0%E5%AD%97/"
+    }
+}
+    </script>
+    
+
+
+    
+
+    
+
+    
+</head>
+<body class="nav-closed">
+
+  <div class="nav">
+    <h3 class="nav-title">Menu</h3>
+    <a href="#" class="nav-close">
+        <span class="hidden">Close</span>
+    </a>
+    <ul>
+        
+        
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="https://XiaPengF.github.io/">Home</a>
+            </li>
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="https://XiaPengF.github.io/tags/java">JAVA</a>
+            </li>
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="https://XiaPengF.github.io/tags/others">Others</a>
+            </li>
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="https://XiaPengF.github.io/about">About</a>
+            </li>
+        
+        
+    </ul>
+
+    
+    <a class="subscribe-button icon-feed" href="https://XiaPengF.github.io/index.xml">Subscribe</a>
+    
+</div>
+<span class="nav-cover"></span>
+
+
+ <div class="site-wrapper">
+
+
+
+<header class="main-header post-head no-cover">
+  <nav class="main-nav clearfix">
+
+
+  
+      <a class="blog-logo" href="https://XiaPengF.github.io/"><img src="https://XiaPengF.github.io/images/girl.jpg" alt="Home" /></a>
+  
+  
+      <a class="menu-button" href="#"><span class="burger">&#9776;</span><span class="word">Menu</span></a>
+  
+  </nav>
+</header>
+
+
+
+<main class="content" role="main">
+
+
+
+
+  <article class="post post">
+
+    <header class="post-header">
+        <h1 class="post-title">[剑指Offer] 6. 旋转数组的最小数字</h1>
+        <small></small>
+
+        <section class="post-meta">
+        
+          <time class="post-date" datetime="2020-05-06T09:34:09&#43;08:00">
+            May 6, 2020
+          </time>
+        
+         
+          <span class="post-tag small"><a href="https://XiaPengF.github.io//tags/%E5%89%91%E6%8C%87offer%E6%95%B0%E7%BB%84/">#剑指offer、数组</a></span>
+         
+        </section>
+    </header>
+
+    <section class="post-content">
+      <h3 id="1题目描述">1.题目描述</h3>
+<p>把一个数组最开始的若干个元素搬到数组的末尾，我们称之为数组的旋转。 输入一个非递减排序的数组的一个旋转，输出旋转数组的最小元素。 例如数组{3,4,5,1,2}为{1,2,3,4,5}的一个旋转，该数组的最小值为1。 NOTE：给出的所有元素都大于0，若数组大小为0，请返回0。</p>
+<p>题目链接：  <a href="https://www.nowcoder.com/practice/9f3231a991af4f55b95579b44b7a01ba?tpId=13&amp;tqId=11159&amp;tPage=1&amp;rp=1&amp;ru=%2Fta%2Fcoding-interviews&amp;qru=%2Fta%2Fcoding-interviews%2Fquestion-ranking">https://www.nowcoder.com/practice/9f3231a991af4f55b95579b44b7a01ba?tpId=13&amp;tqId=11159&amp;tPage=1&amp;rp=1&amp;ru=%2Fta%2Fcoding-interviews&amp;qru=%2Fta%2Fcoding-interviews%2Fquestion-ranking</a></p>
+<h3 id="2解题思路">2.解题思路</h3>
+<p>本题的一个简单算法就是从左到右遍历，由于是递增的，直到找到一个小的数就可以停止了，但是这种方法速度相对太慢，所以可以采用二分法的思想，定义一个left和right逐步缩小范围，最终确定最小的数。</p>
+<p>注意：像<code>[1,0,1,1,1] 、[1,1,1,0,1]</code>特殊数组要注意。</p>
+<pre><code>import java.util.ArrayList;
+public class Solution {
+    public int minNumberInRotateArray(int [] array) {
+        if(array==null || array.length==0){
+            return 0;
+        }
+        int left =0; int right=array.length-1;
+        while(left&lt;right){
+            int middle = (left+right)/2;
+            if(array[middle] == array[right]){
+                right--;
+            }else if(array[middle] &gt; array[right]){
+                left = middle+1;
+            }else{
+                right = middle;
+            }
+        }
+        return array[left];
+    }
+}
+</code></pre><p><code>运行时间：380ms</code></p>
+<p><code>占用内存：28564k</code></p>
+
+    </section>
+
+
+  <footer class="post-footer">
+
+
+    
+
+
+
+
+
+
+
+
+<figure class="author-image">
+    <a class="img" href="https://XiaPengF.github.io/" style="background-image: url(/images/girl.jpg)"><span class="hidden">Xia's Picture</span></a>
+</figure>
+
+
+<section class="author">
+  <h4><a href="https://XiaPengF.github.io/">Xia</a></h4>
+  
+  <p>Every man dies, not every man really lives.</p>
+  
+  <div class="author-meta">
+    <span class="author-location icon-location">HangZhou, China</span>
+    
+  </div>
+</section>
+
+
+
+
+    
+<section class="share">
+  <h4>Share this post</h4>
+  <a class="icon-twitter" style="font-size: 1.4em" href="https://twitter.com/share?text=%5b%e5%89%91%e6%8c%87Offer%5d%206.%20%e6%97%8b%e8%bd%ac%e6%95%b0%e7%bb%84%e7%9a%84%e6%9c%80%e5%b0%8f%e6%95%b0%e5%ad%97&nbsp;-&nbsp;Thinking&amp;url=https%3a%2f%2fXiaPengF.github.io%2f2020%2f05%2f06%2f%25E5%2589%2591%25E6%258C%2587offer-6.-%25E6%2597%258B%25E8%25BD%25AC%25E6%2595%25B0%25E7%25BB%2584%25E7%259A%2584%25E6%259C%2580%25E5%25B0%258F%25E6%2595%25B0%25E5%25AD%2597%2f"
+      onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+      <span class="hidden">Twitter</span>
+  </a>
+  <a class="icon-facebook" style="font-size: 1.4em" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fXiaPengF.github.io%2f2020%2f05%2f06%2f%25E5%2589%2591%25E6%258C%2587offer-6.-%25E6%2597%258B%25E8%25BD%25AC%25E6%2595%25B0%25E7%25BB%2584%25E7%259A%2584%25E6%259C%2580%25E5%25B0%258F%25E6%2595%25B0%25E5%25AD%2597%2f"
+      onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+      <span class="hidden">Facebook</span>
+  </a>
+  <a class="icon-pinterest" style="font-size: 1.4em" href="http://pinterest.com/pin/create/button/?url=https%3a%2f%2fXiaPengF.github.io%2f2020%2f05%2f06%2f%25E5%2589%2591%25E6%258C%2587offer-6.-%25E6%2597%258B%25E8%25BD%25AC%25E6%2595%25B0%25E7%25BB%2584%25E7%259A%2584%25E6%259C%2580%25E5%25B0%258F%25E6%2595%25B0%25E5%25AD%2597%2f&amp;description=%5b%e5%89%91%e6%8c%87Offer%5d%206.%20%e6%97%8b%e8%bd%ac%e6%95%b0%e7%bb%84%e7%9a%84%e6%9c%80%e5%b0%8f%e6%95%b0%e5%ad%97"
+      onclick="window.open(this.href, 'pinterest-share','width=580,height=296');return false;">
+      <span class="hidden">Pinterest</span>
+  </a>
+  <a class="icon-google-plus" style="font-size: 1.4em" href="https://plus.google.com/share?url=https%3a%2f%2fXiaPengF.github.io%2f2020%2f05%2f06%2f%25E5%2589%2591%25E6%258C%2587offer-6.-%25E6%2597%258B%25E8%25BD%25AC%25E6%2595%25B0%25E7%25BB%2584%25E7%259A%2584%25E6%259C%2580%25E5%25B0%258F%25E6%2595%25B0%25E5%25AD%2597%2f"
+     onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+      <span class="hidden">Google+</span>
+  </a>
+</section>
+
+
+
+    
+
+<div id="disqus_thread"></div>
+<script>
+
+
+
+
+var disqus_config = function () {
+this.page.url = "https:\/\/XiaPengF.github.io\/2020\/05\/06\/%E5%89%91%E6%8C%87offer-6.-%E6%97%8B%E8%BD%AC%E6%95%B0%E7%BB%84%E7%9A%84%E6%9C%80%E5%B0%8F%E6%95%B0%E5%AD%97\/";  
+this.page.identifier = "https:\/\/XiaPengF.github.io\/2020\/05\/06\/%E5%89%91%E6%8C%87offer-6.-%E6%97%8B%E8%BD%AC%E6%95%B0%E7%BB%84%E7%9A%84%E6%9C%80%E5%B0%8F%E6%95%B0%E5%AD%97\/"; 
+};
+
+(function() { 
+var d = document, s = d.createElement('script');
+s.src = 'https://Xia.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+
+
+
+
+
+
+  </footer>
+</article>
+
+</main>
+
+
+  <aside class="read-next">
+  
+      <a class="read-next-story" style="no-cover" href="https://XiaPengF.github.io/2020/05/07/%E5%89%91%E6%8C%87offer-7.-%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E6%95%B0%E5%88%97/">
+          <section class="post">
+              <h2>[剑指Offer] 7. 斐波那契数列</h2>
+              
+          </section>
+      </a>
+  
+  
+      <a class="read-next-story prev" style="no-cover" href="https://XiaPengF.github.io/2020/05/05/%E5%89%91%E6%8C%87offer-4.-%E9%87%8D%E5%BB%BA%E4%BA%8C%E5%8F%89%E6%A0%91/">
+          <section class="post">
+              <h2>[剑指Offer] 4. 重建二叉树</h2>
+          </section>
+      </a>
+  
+</aside>
+
+
+
+    <footer class="site-footer clearfix">
+        <section class="copyright"><a href="">Thinking</a> All rights reserved - 2020</section>
+        
+        <section class="poweredby">Proudly generated by <a class="icon-hugo" href="http://gohugo.io">HUGO</a>, with <a class="icon-theme" href="https://github.com/vjeantet/hugo-theme-casper">Casper</a> theme</section>
+        
+    </footer>
+    </div>
+    <script type="text/javascript" src="https://XiaPengF.github.io/js/jquery.js"></script>
+    <script type="text/javascript" src="https://XiaPengF.github.io/js/jquery.fitvids.js"></script>
+    <script type="text/javascript" src="https://XiaPengF.github.io/js/index.js"></script>
+    
+</body>
+</html>
+

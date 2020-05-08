@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>递归、动态规划 on Thinking</title>
+    <link>https://XiaPengF.github.io/tags/%E9%80%92%E5%BD%92%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/</link>
+    <description>Recent content in 递归、动态规划 on Thinking</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <copyright>All rights reserved - 2020</copyright>
+    <lastBuildDate>Thu, 07 May 2020 17:52:28 +0800</lastBuildDate>
+    
+	<atom:link href="https://XiaPengF.github.io/tags/%E9%80%92%E5%BD%92%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>[剑指Offer] 10. 矩形覆盖</title>
+      <link>https://XiaPengF.github.io/2020/05/07/%E5%89%91%E6%8C%87offer-10.-%E7%9F%A9%E5%BD%A2%E8%A6%86%E7%9B%96/</link>
+      <pubDate>Thu, 07 May 2020 17:52:28 +0800</pubDate>
+      
+      <guid>https://XiaPengF.github.io/2020/05/07/%E5%89%91%E6%8C%87offer-10.-%E7%9F%A9%E5%BD%A2%E8%A6%86%E7%9B%96/</guid>
+      <description>1.题目描述 我们可以用21的小矩形横着或者竖着去覆盖更大的矩形。请问用n个21的小矩形无重叠地覆盖一个2n的大矩形，总共有多少种方法？比如n=3时，23的矩形块有3种覆盖方法。
+题目链接： https://www.nowcoder.com/practice/72a5a919508a4251859fb2cfb987a0e6?tpId=13&amp;amp;tqId=11163&amp;amp;tPage=1&amp;amp;rp=1&amp;amp;ru=%2Fta%2Fcoding-interviews&amp;amp;qru=%2Fta%2Fcoding-interviews%2Fquestion-ranking%3E
+2.解题思路 其实就是斐波那契数。
+2.1.使用递归 public class Solution { public int RectCover(int target) { if(target &amp;lt; 3){ return target; } return RectCover(target-1)+RectCover(target-2); } } 运行时间：446ms
+占用内存：9424k
+2.2.使用动态规划 public class Solution { public int RectCover(int target) { if(target &amp;lt; 2){ return target; } int[] dp = new int[target+1]; dp[0]=0;dp[1]=1;dp[2]=2; for(int i=3;i&amp;lt;target+1;i++){ dp[i] = dp[i-1]+dp[i-2]; } return dp[target]; } } 运行时间：26ms
+占用内存：9448k</description>
+    </item>
+    
+    <item>
+      <title>[剑指Offer] 9. 变态跳台阶</title>
+      <link>https://XiaPengF.github.io/2020/05/07/%E5%89%91%E6%8C%87offer-9.-%E5%8F%98%E6%80%81%E8%B7%B3%E5%8F%B0%E9%98%B6/</link>
+      <pubDate>Thu, 07 May 2020 17:52:21 +0800</pubDate>
+      
+      <guid>https://XiaPengF.github.io/2020/05/07/%E5%89%91%E6%8C%87offer-9.-%E5%8F%98%E6%80%81%E8%B7%B3%E5%8F%B0%E9%98%B6/</guid>
+      <description>1.题目描述 一只青蛙一次可以跳上1级台阶，也可以跳上2级……它也可以跳上n级。求该青蛙跳上一个n级的台阶总共有多少种跳法。
+题目链接： https://www.nowcoder.com/practice/22243d016f6b47f2a6928b4313c85387?tpId=13&amp;amp;tqId=11162&amp;amp;tPage=1&amp;amp;rp=1&amp;amp;ru=%2Fta%2Fcoding-interviews&amp;amp;qru=%2Fta%2Fcoding-interviews%2Fquestion-ranking%3E
+2.解题思路 数学推导：
+要添加
+2.1.使用递归 public class Solution { public int JumpFloor(int target) { if(target&amp;lt;3){ return target; } return JumpFloor(target-1)+JumpFloor(target-2); } } 运行时间：17ms
+占用内存：9152k
+2.2.使用动态规划 public class Solution { public int JumpFloorII(int target) { if(target&amp;lt;3){ return target; } int[] dp = new int[target+1]; dp[0]=0;dp[1]=1;dp[2]=2; for(int i=3;i&amp;lt;target+1;i++){ dp[i] = 2*dp[i-1]; } return dp[target]; } } 运行时间：26ms
+占用内存：9184k</description>
+    </item>
+    
+    <item>
+      <title>[剑指Offer] 8. 跳台阶</title>
+      <link>https://XiaPengF.github.io/2020/05/07/%E5%89%91%E6%8C%87offer-8.-%E8%B7%B3%E5%8F%B0%E9%98%B6/</link>
+      <pubDate>Thu, 07 May 2020 17:52:15 +0800</pubDate>
+      
+      <guid>https://XiaPengF.github.io/2020/05/07/%E5%89%91%E6%8C%87offer-8.-%E8%B7%B3%E5%8F%B0%E9%98%B6/</guid>
+      <description>1.题目描述 一只青蛙一次可以跳上1级台阶，也可以跳上2级。求该青蛙跳上一个n级的台阶总共有多少种跳法（先后次序不同算不同的结果）。
+题目链接： https://www.nowcoder.com/practice/8c82a5b80378478f9484d87d1c5f12a4?tpId=13&amp;amp;tqId=11161&amp;amp;tPage=1&amp;amp;rp=1&amp;amp;ru=%2Fta%2Fcoding-interviews&amp;amp;qru=%2Fta%2Fcoding-interviews%2Fquestion-ranking%3E
+2.解题思路 此题其实就是一个斐波那契数列。
+当 $n=1、2$时：$f(n)=1、2$ ；
+当 $n&amp;gt;=3$时： $f(n) = f(n-1)+f(n-2) $
+2.1.使用递归 public class Solution { public int JumpFloor(int target) { if(target&amp;lt;3){ return target; } return JumpFloor(target-1)+JumpFloor(target-2); } } 运行时间：383ms
+占用内存：9416k
+2.2.使用动态规划(借助数组) public class Solution { public int JumpFloor(int target) { if(target&amp;lt;3){ return target; } int[] dp = new int[target+1]; dp[0]=0;dp[1]=1;dp[2]=2; for(int i=3;i&amp;lt;target+1;i++){ dp[i] = dp[i-1]+dp[i-2]; } return dp[target]; } } 运行时间：16ms
+占用内存：9292k
+2.3.使用动态规划(不借助数组) public class Solution { public int JumpFloor(int target) { if(target&amp;lt;3){ return target; } int prev = 1, curr = 2; for(int i=3;i&amp;lt;=target;i++){ int sum = prev + curr; prev = curr; curr = sum; } return curr; } } 运行时间：13ms</description>
+    </item>
+    
+    <item>
+      <title>[剑指Offer] 7. 斐波那契数列</title>
+      <link>https://XiaPengF.github.io/2020/05/07/%E5%89%91%E6%8C%87offer-7.-%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E6%95%B0%E5%88%97/</link>
+      <pubDate>Thu, 07 May 2020 17:52:09 +0800</pubDate>
+      
+      <guid>https://XiaPengF.github.io/2020/05/07/%E5%89%91%E6%8C%87offer-7.-%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E6%95%B0%E5%88%97/</guid>
+      <description>1.题目描述 大家都知道斐波那契数列，现在要求输入一个整数n，请你输出斐波那契数列的第n项（从0开始，第0项为0，第1项是1）。n&amp;lt;=39
+题目链接： https://www.nowcoder.com/practice/c6c7742f5ba7442aada113136ddea0c3?tpId=13&amp;amp;tqId=11160&amp;amp;tPage=1&amp;amp;rp=1&amp;amp;ru=%2Fta%2Fcoding-interviews&amp;amp;qru=%2Fta%2Fcoding-interviews%2Fquestion-ranking%3E
+2.解题思路 只需注意斐波那契数列的第零项即可。
+当 $n=0、1$时：$f(n)=0、1$ ；
+当 $n&amp;gt;=2$时： $f(n) = f(n-1)+f(n-2) $
+2.1.使用递归 public class Solution { public int Fibonacci(int n) { if(n&amp;lt;2){ return n; } int[] dp = new int[40]; dp[0] = 0; dp[1] = 1; for(int i=2;i&amp;lt;dp.length;i++){ dp[i] = dp[i-1]+dp[i-2]; } return dp[n]; } } 运行时间：995ms
+占用内存：9040k
+2.2.使用动态规划(借助数组) public class Solution { public int Fibonacci(int n) { if(n&amp;lt;2){ return n; } int[] dp = new int[40]; dp[0] = 0; dp[1] = 1; for(int i=2;i&amp;lt;dp.</description>
+    </item>
+    
+  </channel>
+</rss>
